@@ -1,15 +1,12 @@
 import { Controller, Get, Param } from '@nestjs/common';
+import { CatalogService } from './catalog.service';
 
 @Controller('catalog')
 export class CatalogController {
+  constructor(private readonly catalogService: CatalogService) {}
+
   @Get(':id')
   getProduct(@Param('id') id: string) {
-    return {
-      id,
-      name: 'Veloria Midnight Candle',
-      brand: 'Veloria',
-      price: 85,
-      description: 'Premium sandalwood and amber candle',
-    };
+    return this.catalogService.findOne(id);
   }
 }
