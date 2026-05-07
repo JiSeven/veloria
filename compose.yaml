@@ -1,0 +1,15 @@
+services:
+  veloria-db:
+    image: postgres:18-alpine
+    container_name: veloria-db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: veloria_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
