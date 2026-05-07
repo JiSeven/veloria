@@ -1,11 +1,12 @@
 import { PrismaService } from '@/prisma/prisma.service';
 import { Injectable, NotFoundException } from '@nestjs/common';
+import { ProductResponseDto } from './dto/product-response.dto';
 
 @Injectable()
 export class CatalogService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async findOne(id: string) {
+  async findOne(id: string): Promise<ProductResponseDto> {
     const product = await this.prisma.client.product.findUnique({
       where: {
         id,
@@ -16,10 +17,24 @@ export class CatalogService {
       throw new NotFoundException(`Product with ID ${id} not found`);
     }
 
-    return product;
+    return this.mapToDto(product);
   }
 
-  async findAll() {
-    return this.prisma.client.product.findMany();
+  async findAll(): Promise<ProductResponseDto[]> {
+    const products = await this.prisma.client.product.findMany();
+
+    return products.map((product) => this.mapToDto(product));
+  }
+
+  private mapToDto(product: any): ProductResponseDto {
+    return {
+      id: product.id,
+      name: product.name,
+      brand: product.brand,
+      type: product.type,
+      price: product.price,
+      description: product.description,
+      scentProfile: product.scentProfile as any,
+    };
   }
 }
