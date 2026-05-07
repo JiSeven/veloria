@@ -63,6 +63,12 @@ importers:
       '@types/supertest':
         specifier: ^6.0.2
         version: 6.0.3
+      '@veloria/eslint-config':
+        specifier: workspace:^
+        version: link:../../packages/eslint-config
+      '@veloria/typescript-config':
+        specifier: workspace:^
+        version: link:../../packages/typescript-config
       eslint:
         specifier: ^9.18.0
         version: 9.39.1
@@ -108,7 +114,7 @@ importers:
 
   apps/docs:
     dependencies:
-      '@repo/ui':
+      '@veloria/ui':
         specifier: workspace:*
         version: link:../../packages/ui
       next:
@@ -121,12 +127,6 @@ importers:
         specifier: ^19.2.0
         version: 19.2.0(react@19.2.0)
     devDependencies:
-      '@repo/eslint-config':
-        specifier: workspace:*
-        version: link:../../packages/eslint-config
-      '@repo/typescript-config':
-        specifier: workspace:*
-        version: link:../../packages/typescript-config
       '@types/node':
         specifier: ^22.15.3
         version: 22.15.3
@@ -136,6 +136,12 @@ importers:
       '@types/react-dom':
         specifier: 19.2.2
         version: 19.2.2(@types/react@19.2.2)
+      '@veloria/eslint-config':
+        specifier: workspace:*
+        version: link:../../packages/eslint-config
+      '@veloria/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
       eslint:
         specifier: ^9.39.1
         version: 9.39.1
@@ -145,7 +151,7 @@ importers:
 
   apps/web:
     dependencies:
-      '@repo/ui':
+      '@veloria/ui':
         specifier: workspace:*
         version: link:../../packages/ui
       next:
@@ -158,12 +164,6 @@ importers:
         specifier: ^19.2.0
         version: 19.2.0(react@19.2.0)
     devDependencies:
-      '@repo/eslint-config':
-        specifier: workspace:*
-        version: link:../../packages/eslint-config
-      '@repo/typescript-config':
-        specifier: workspace:*
-        version: link:../../packages/typescript-config
       '@types/node':
         specifier: ^22.15.3
         version: 22.15.3
@@ -173,6 +173,12 @@ importers:
       '@types/react-dom':
         specifier: 19.2.2
         version: 19.2.2(@types/react@19.2.2)
+      '@veloria/eslint-config':
+        specifier: workspace:*
+        version: link:../../packages/eslint-config
+      '@veloria/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
       eslint:
         specifier: ^9.39.1
         version: 9.39.1
@@ -227,12 +233,6 @@ importers:
         specifier: ^19.2.0
         version: 19.2.0(react@19.2.0)
     devDependencies:
-      '@repo/eslint-config':
-        specifier: workspace:*
-        version: link:../eslint-config
-      '@repo/typescript-config':
-        specifier: workspace:*
-        version: link:../typescript-config
       '@types/node':
         specifier: ^22.15.3
         version: 22.15.3
@@ -242,6 +242,12 @@ importers:
       '@types/react-dom':
         specifier: 19.2.2
         version: 19.2.2(@types/react@19.2.2)
+      '@veloria/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@veloria/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
       eslint:
         specifier: ^9.39.1
         version: 9.39.1
