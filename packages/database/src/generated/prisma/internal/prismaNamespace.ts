@@ -522,7 +522,8 @@ export const ProductScalarFieldEnum = {
   name: 'name',
   brand: 'brand',
   type: 'type',
-  price: 'price',
+  priceAmount: 'priceAmount',
+  priceCurrency: 'priceCurrency',
   description: 'description',
   scentProfile: 'scentProfile',
   createdAt: 'createdAt',
@@ -581,6 +582,20 @@ export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 
  * Reference to a field of type 'String[]'
  */
 export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ProductType'
+ */
+export type EnumProductTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProductType'>
+    
+
+
+/**
+ * Reference to a field of type 'ProductType[]'
+ */
+export type ListEnumProductTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProductType[]'>
     
 
 

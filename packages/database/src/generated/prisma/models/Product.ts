@@ -27,19 +27,20 @@ export type AggregateProduct = {
 }
 
 export type ProductAvgAggregateOutputType = {
-  price: number | null
+  priceAmount: number | null
 }
 
 export type ProductSumAggregateOutputType = {
-  price: number | null
+  priceAmount: number | null
 }
 
 export type ProductMinAggregateOutputType = {
   id: string | null
   name: string | null
   brand: string | null
-  type: string | null
-  price: number | null
+  type: $Enums.ProductType | null
+  priceAmount: number | null
+  priceCurrency: string | null
   description: string | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -49,8 +50,9 @@ export type ProductMaxAggregateOutputType = {
   id: string | null
   name: string | null
   brand: string | null
-  type: string | null
-  price: number | null
+  type: $Enums.ProductType | null
+  priceAmount: number | null
+  priceCurrency: string | null
   description: string | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -61,7 +63,8 @@ export type ProductCountAggregateOutputType = {
   name: number
   brand: number
   type: number
-  price: number
+  priceAmount: number
+  priceCurrency: number
   description: number
   scentProfile: number
   createdAt: number
@@ -71,11 +74,11 @@ export type ProductCountAggregateOutputType = {
 
 
 export type ProductAvgAggregateInputType = {
-  price?: true
+  priceAmount?: true
 }
 
 export type ProductSumAggregateInputType = {
-  price?: true
+  priceAmount?: true
 }
 
 export type ProductMinAggregateInputType = {
@@ -83,7 +86,8 @@ export type ProductMinAggregateInputType = {
   name?: true
   brand?: true
   type?: true
-  price?: true
+  priceAmount?: true
+  priceCurrency?: true
   description?: true
   createdAt?: true
   updatedAt?: true
@@ -94,7 +98,8 @@ export type ProductMaxAggregateInputType = {
   name?: true
   brand?: true
   type?: true
-  price?: true
+  priceAmount?: true
+  priceCurrency?: true
   description?: true
   createdAt?: true
   updatedAt?: true
@@ -105,7 +110,8 @@ export type ProductCountAggregateInputType = {
   name?: true
   brand?: true
   type?: true
-  price?: true
+  priceAmount?: true
+  priceCurrency?: true
   description?: true
   scentProfile?: true
   createdAt?: true
@@ -203,8 +209,9 @@ export type ProductGroupByOutputType = {
   id: string
   name: string
   brand: string
-  type: string
-  price: number
+  type: $Enums.ProductType
+  priceAmount: number
+  priceCurrency: string
   description: string
   scentProfile: runtime.JsonValue
   createdAt: Date
@@ -238,8 +245,9 @@ export type ProductWhereInput = {
   id?: Prisma.StringFilter<"Product"> | string
   name?: Prisma.StringFilter<"Product"> | string
   brand?: Prisma.StringFilter<"Product"> | string
-  type?: Prisma.StringFilter<"Product"> | string
-  price?: Prisma.FloatFilter<"Product"> | number
+  type?: Prisma.EnumProductTypeFilter<"Product"> | $Enums.ProductType
+  priceAmount?: Prisma.FloatFilter<"Product"> | number
+  priceCurrency?: Prisma.StringFilter<"Product"> | string
   description?: Prisma.StringFilter<"Product"> | string
   scentProfile?: Prisma.JsonFilter<"Product">
   createdAt?: Prisma.DateTimeFilter<"Product"> | Date | string
@@ -251,7 +259,8 @@ export type ProductOrderByWithRelationInput = {
   name?: Prisma.SortOrder
   brand?: Prisma.SortOrder
   type?: Prisma.SortOrder
-  price?: Prisma.SortOrder
+  priceAmount?: Prisma.SortOrder
+  priceCurrency?: Prisma.SortOrder
   description?: Prisma.SortOrder
   scentProfile?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -265,8 +274,9 @@ export type ProductWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.ProductWhereInput | Prisma.ProductWhereInput[]
   name?: Prisma.StringFilter<"Product"> | string
   brand?: Prisma.StringFilter<"Product"> | string
-  type?: Prisma.StringFilter<"Product"> | string
-  price?: Prisma.FloatFilter<"Product"> | number
+  type?: Prisma.EnumProductTypeFilter<"Product"> | $Enums.ProductType
+  priceAmount?: Prisma.FloatFilter<"Product"> | number
+  priceCurrency?: Prisma.StringFilter<"Product"> | string
   description?: Prisma.StringFilter<"Product"> | string
   scentProfile?: Prisma.JsonFilter<"Product">
   createdAt?: Prisma.DateTimeFilter<"Product"> | Date | string
@@ -278,7 +288,8 @@ export type ProductOrderByWithAggregationInput = {
   name?: Prisma.SortOrder
   brand?: Prisma.SortOrder
   type?: Prisma.SortOrder
-  price?: Prisma.SortOrder
+  priceAmount?: Prisma.SortOrder
+  priceCurrency?: Prisma.SortOrder
   description?: Prisma.SortOrder
   scentProfile?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -297,8 +308,9 @@ export type ProductScalarWhereWithAggregatesInput = {
   id?: Prisma.StringWithAggregatesFilter<"Product"> | string
   name?: Prisma.StringWithAggregatesFilter<"Product"> | string
   brand?: Prisma.StringWithAggregatesFilter<"Product"> | string
-  type?: Prisma.StringWithAggregatesFilter<"Product"> | string
-  price?: Prisma.FloatWithAggregatesFilter<"Product"> | number
+  type?: Prisma.EnumProductTypeWithAggregatesFilter<"Product"> | $Enums.ProductType
+  priceAmount?: Prisma.FloatWithAggregatesFilter<"Product"> | number
+  priceCurrency?: Prisma.StringWithAggregatesFilter<"Product"> | string
   description?: Prisma.StringWithAggregatesFilter<"Product"> | string
   scentProfile?: Prisma.JsonWithAggregatesFilter<"Product">
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Product"> | Date | string
@@ -309,8 +321,9 @@ export type ProductCreateInput = {
   id?: string
   name: string
   brand: string
-  type: string
-  price: number
+  type: $Enums.ProductType
+  priceAmount: number
+  priceCurrency: string
   description: string
   scentProfile: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
@@ -321,8 +334,9 @@ export type ProductUncheckedCreateInput = {
   id?: string
   name: string
   brand: string
-  type: string
-  price: number
+  type: $Enums.ProductType
+  priceAmount: number
+  priceCurrency: string
   description: string
   scentProfile: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
@@ -333,8 +347,9 @@ export type ProductUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   brand?: Prisma.StringFieldUpdateOperationsInput | string
-  type?: Prisma.StringFieldUpdateOperationsInput | string
-  price?: Prisma.FloatFieldUpdateOperationsInput | number
+  type?: Prisma.EnumProductTypeFieldUpdateOperationsInput | $Enums.ProductType
+  priceAmount?: Prisma.FloatFieldUpdateOperationsInput | number
+  priceCurrency?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   scentProfile?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -345,8 +360,9 @@ export type ProductUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   brand?: Prisma.StringFieldUpdateOperationsInput | string
-  type?: Prisma.StringFieldUpdateOperationsInput | string
-  price?: Prisma.FloatFieldUpdateOperationsInput | number
+  type?: Prisma.EnumProductTypeFieldUpdateOperationsInput | $Enums.ProductType
+  priceAmount?: Prisma.FloatFieldUpdateOperationsInput | number
+  priceCurrency?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   scentProfile?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -357,8 +373,9 @@ export type ProductCreateManyInput = {
   id?: string
   name: string
   brand: string
-  type: string
-  price: number
+  type: $Enums.ProductType
+  priceAmount: number
+  priceCurrency: string
   description: string
   scentProfile: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
@@ -369,8 +386,9 @@ export type ProductUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   brand?: Prisma.StringFieldUpdateOperationsInput | string
-  type?: Prisma.StringFieldUpdateOperationsInput | string
-  price?: Prisma.FloatFieldUpdateOperationsInput | number
+  type?: Prisma.EnumProductTypeFieldUpdateOperationsInput | $Enums.ProductType
+  priceAmount?: Prisma.FloatFieldUpdateOperationsInput | number
+  priceCurrency?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   scentProfile?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -381,8 +399,9 @@ export type ProductUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   brand?: Prisma.StringFieldUpdateOperationsInput | string
-  type?: Prisma.StringFieldUpdateOperationsInput | string
-  price?: Prisma.FloatFieldUpdateOperationsInput | number
+  type?: Prisma.EnumProductTypeFieldUpdateOperationsInput | $Enums.ProductType
+  priceAmount?: Prisma.FloatFieldUpdateOperationsInput | number
+  priceCurrency?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   scentProfile?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -394,7 +413,8 @@ export type ProductCountOrderByAggregateInput = {
   name?: Prisma.SortOrder
   brand?: Prisma.SortOrder
   type?: Prisma.SortOrder
-  price?: Prisma.SortOrder
+  priceAmount?: Prisma.SortOrder
+  priceCurrency?: Prisma.SortOrder
   description?: Prisma.SortOrder
   scentProfile?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -402,7 +422,7 @@ export type ProductCountOrderByAggregateInput = {
 }
 
 export type ProductAvgOrderByAggregateInput = {
-  price?: Prisma.SortOrder
+  priceAmount?: Prisma.SortOrder
 }
 
 export type ProductMaxOrderByAggregateInput = {
@@ -410,7 +430,8 @@ export type ProductMaxOrderByAggregateInput = {
   name?: Prisma.SortOrder
   brand?: Prisma.SortOrder
   type?: Prisma.SortOrder
-  price?: Prisma.SortOrder
+  priceAmount?: Prisma.SortOrder
+  priceCurrency?: Prisma.SortOrder
   description?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -421,18 +442,23 @@ export type ProductMinOrderByAggregateInput = {
   name?: Prisma.SortOrder
   brand?: Prisma.SortOrder
   type?: Prisma.SortOrder
-  price?: Prisma.SortOrder
+  priceAmount?: Prisma.SortOrder
+  priceCurrency?: Prisma.SortOrder
   description?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
 
 export type ProductSumOrderByAggregateInput = {
-  price?: Prisma.SortOrder
+  priceAmount?: Prisma.SortOrder
 }
 
 export type StringFieldUpdateOperationsInput = {
   set?: string
+}
+
+export type EnumProductTypeFieldUpdateOperationsInput = {
+  set?: $Enums.ProductType
 }
 
 export type FloatFieldUpdateOperationsInput = {
@@ -454,7 +480,8 @@ export type ProductSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   name?: boolean
   brand?: boolean
   type?: boolean
-  price?: boolean
+  priceAmount?: boolean
+  priceCurrency?: boolean
   description?: boolean
   scentProfile?: boolean
   createdAt?: boolean
@@ -466,7 +493,8 @@ export type ProductSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   name?: boolean
   brand?: boolean
   type?: boolean
-  price?: boolean
+  priceAmount?: boolean
+  priceCurrency?: boolean
   description?: boolean
   scentProfile?: boolean
   createdAt?: boolean
@@ -478,7 +506,8 @@ export type ProductSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   name?: boolean
   brand?: boolean
   type?: boolean
-  price?: boolean
+  priceAmount?: boolean
+  priceCurrency?: boolean
   description?: boolean
   scentProfile?: boolean
   createdAt?: boolean
@@ -490,14 +519,15 @@ export type ProductSelectScalar = {
   name?: boolean
   brand?: boolean
   type?: boolean
-  price?: boolean
+  priceAmount?: boolean
+  priceCurrency?: boolean
   description?: boolean
   scentProfile?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type ProductOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "brand" | "type" | "price" | "description" | "scentProfile" | "createdAt" | "updatedAt", ExtArgs["result"]["product"]>
+export type ProductOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "brand" | "type" | "priceAmount" | "priceCurrency" | "description" | "scentProfile" | "createdAt" | "updatedAt", ExtArgs["result"]["product"]>
 
 export type $ProductPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Product"
@@ -506,8 +536,9 @@ export type $ProductPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     id: string
     name: string
     brand: string
-    type: string
-    price: number
+    type: $Enums.ProductType
+    priceAmount: number
+    priceCurrency: string
     description: string
     scentProfile: runtime.JsonValue
     createdAt: Date
@@ -938,8 +969,9 @@ export interface ProductFieldRefs {
   readonly id: Prisma.FieldRef<"Product", 'String'>
   readonly name: Prisma.FieldRef<"Product", 'String'>
   readonly brand: Prisma.FieldRef<"Product", 'String'>
-  readonly type: Prisma.FieldRef<"Product", 'String'>
-  readonly price: Prisma.FieldRef<"Product", 'Float'>
+  readonly type: Prisma.FieldRef<"Product", 'ProductType'>
+  readonly priceAmount: Prisma.FieldRef<"Product", 'Float'>
+  readonly priceCurrency: Prisma.FieldRef<"Product", 'String'>
   readonly description: Prisma.FieldRef<"Product", 'String'>
   readonly scentProfile: Prisma.FieldRef<"Product", 'Json'>
   readonly createdAt: Prisma.FieldRef<"Product", 'DateTime'>

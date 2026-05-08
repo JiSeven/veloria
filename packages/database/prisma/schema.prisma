@@ -7,14 +7,23 @@ datasource db {
   provider = "postgresql"
 }
 
+enum ProductType {
+  CANDLE
+  PERFUME
+}
+
 model Product {
-  id           String   @id @default(uuid())
-  name         String
-  brand        String
-  type         String
-  price        Float
-  description  String
-  scentProfile Json
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  id            String      @id @default(uuid())
+  name          String      @unique
+  description   String
+  brand         String
+  type          ProductType
+  priceAmount   Float
+  priceCurrency String      @db.Char(3)
+  scentProfile  Json
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  @@index([brand])
+  @@index([createdAt(sort: Desc)])
 }
