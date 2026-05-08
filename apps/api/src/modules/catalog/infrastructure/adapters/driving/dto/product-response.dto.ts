@@ -1,5 +1,5 @@
-import { ProductEntity } from '@/modules/catalog/domain/entities/product.entity';
-import { ProductType } from '@/modules/catalog/domain/enums/product-type';
+import { ProductEntity } from '@/catalog/domain/entities/product.entity';
+import { ProductType } from '@/catalog/domain/enums/product-type';
 
 export interface MoneyResponseDto {
   amount: number;

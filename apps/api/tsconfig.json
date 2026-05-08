@@ -20,7 +20,9 @@
     "strictBindCallApply": false,
     "noFallthroughCasesInSwitch": false,
     "paths": {
-      "@/*": ["./src/*"]
+      "@/prisma/*": ["./src/prisma/*"],
+      "@/catalog/*": ["./src/modules/catalog/*"],
+      "@/shared/*": ["./src/shared/*"],
     }
   }
 }

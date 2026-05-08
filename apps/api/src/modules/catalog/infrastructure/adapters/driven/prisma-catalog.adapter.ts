@@ -1,15 +1,16 @@
 import { Injectable } from '@nestjs/common';
-import { PrismaService } from '../../../../../prisma/prisma.service';
-import { CatalogPort } from '../../../domain/ports/catalog.port';
-import { ProductEntity } from '../../../domain/entities/product.entity';
-import { ProductAlreadyExistsException } from '@/modules/catalog/domain/exceptions/product-already-exists.exception';
 import { PrismaClientKnownRequestError, Product } from '@veloria/database';
+
+import { ProductEntity } from '@/catalog/domain/entities/product.entity';
+import { ProductType } from '@/catalog/domain/enums/product-type';
+import { ProductAlreadyExistsException } from '@/catalog/domain/exceptions/product-already-exists.exception';
+import { CatalogPort } from '@/catalog/domain/ports/catalog.port';
+import { Money } from '@/catalog/domain/value-objects/money.vo';
 import {
   ScentProfile,
   ScentProfileProps,
-} from '@/modules/catalog/domain/value-objects/scent-profile.vo';
-import { Money } from '@/modules/catalog/domain/value-objects/money.vo';
-import { ProductType } from '@/modules/catalog/domain/enums/product-type';
+} from '@/catalog/domain/value-objects/scent-profile.vo';
+import { PrismaService } from '@/prisma/prisma.service';
 
 @Injectable()
 export class PrismaCatalogAdapter extends CatalogPort {

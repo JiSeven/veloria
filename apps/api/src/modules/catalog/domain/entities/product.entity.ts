@@ -1,5 +1,7 @@
 import { randomUUID } from 'node:crypto';
+
 import { ProductType } from '../enums/product-type';
+import { ProductCreatedEvent } from '../events/product-created.event';
 import { Money } from '../value-objects/money.vo';
 import { ScentProfile } from '../value-objects/scent-profile.vo';
 
@@ -17,9 +19,11 @@ export interface ProductProps {
 type CreateProductProps = Omit<ProductProps, 'id' | 'createdAt'>;
 
 export class ProductEntity {
+  private readonly _domainEvents: object[] = [];
+
   private constructor(private readonly props: ProductProps) {}
 
-  // ─── Factory: brand-new product, generates ID ────────
+  // ─── Factory: brand-new product, generates ID and emits domain event ────────
 
   public static create(props: CreateProductProps): ProductEntity {
     const entity = new ProductEntity({
@@ -28,10 +32,20 @@ export class ProductEntity {
       createdAt: new Date(),
     });
 
+    entity._domainEvents.push(
+      new ProductCreatedEvent(
+        entity.props.id,
+        props.name,
+        props.type,
+        props.price.currency,
+        props.price.amount,
+      ),
+    );
+
     return entity;
   }
 
-  // ─── Factory: rehydrate from persistence ─────────────────
+  // ─── Factory: rehydrate from persistence, no events emitted ─────────────────
 
   public static reconstitute(props: ProductProps): ProductEntity {
     return new ProductEntity(props);
@@ -68,5 +82,16 @@ export class ProductEntity {
 
   public hasNote(note: string): boolean {
     return this.props.scentProfile.hasNote(note);
+  }
+
+  // ─── Domain events ───────────────────────────────────────────────────────────
+
+  /**
+   * Pull accumulated domain events and clear the internal list.
+   */
+  public pullDomainEvents(): object[] {
+    const events = [...this._domainEvents];
+    this._domainEvents.length = 0;
+    return events;
   }
 }

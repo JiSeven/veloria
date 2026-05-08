@@ -6,4 +6,4 @@ const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL });
 export const prisma = new PrismaClient({ adapter });
 
 export { PrismaClientKnownRequestError };
-export type { Product };
+export type { Product, PrismaClient };

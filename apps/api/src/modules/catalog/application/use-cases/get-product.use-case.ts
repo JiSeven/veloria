@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { CatalogPort } from '../../domain/ports/catalog.port';
-import { ProductNotFoundException } from '../../domain/exceptions/product-not-found.exception';
+
+import { ProductNotFoundException } from '@/catalog/domain/exceptions/product-not-found.exception';
+import { CatalogPort } from '@/catalog/domain/ports/catalog.port';
 
 @Injectable()
 export class GetProductUseCase {

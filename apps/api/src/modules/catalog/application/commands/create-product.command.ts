@@ -1,5 +1,5 @@
-import { ProductType } from '../../domain/enums/product-type';
-import { ScentProfileProps } from '../../domain/value-objects/scent-profile.vo';
+import { ProductType } from '@/catalog/domain/enums/product-type';
+import { ScentProfileProps } from '@/catalog/domain/value-objects/scent-profile.vo';
 
 export class CreateProductCommand {
   constructor(

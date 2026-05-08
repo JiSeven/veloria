@@ -8,9 +8,12 @@ import {
   Post,
   UsePipes,
 } from '@nestjs/common';
+
+import { CreateProductCommand } from '@/catalog/application/commands/create-product.command';
+import { CreateProductUseCase } from '@/catalog/application/use-cases/create-product.use-case';
+import { GetProductUseCase } from '@/catalog/application/use-cases/get-product.use-case';
 import { ZodValidationPipe } from '@/shared/pipes/zod-validation.pipe';
-import { GetProductUseCase } from '../../../application/use-cases/get-product.use-case';
-import { CreateProductUseCase } from '../../../application/use-cases/create-product.use-case';
+
 import {
   type CreateProductDto,
   CreateProductSchema,
@@ -19,7 +22,6 @@ import {
   ProductResponseDto,
   toProductResponseDto,
 } from './dto/product-response.dto';
-import { CreateProductCommand } from '@/modules/catalog/application/commands/create-product.command';
 
 @Controller('catalog')
 export class CatalogHttpAdapter {

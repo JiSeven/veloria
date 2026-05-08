@@ -6,7 +6,8 @@ import {
   Logger,
 } from '@nestjs/common';
 import { Response } from 'express';
-import { DomainException } from '../../modules/catalog/domain/exceptions/domain.exception';
+
+import { DomainException } from '@/catalog/domain/exceptions/domain.exception';
 
 /**
  * Catches DomainExceptions and maps them to HTTP responses using the

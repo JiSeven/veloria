@@ -1,5 +1,6 @@
-import { ProductType } from '@/modules/catalog/domain/enums/product-type';
 import { z } from 'zod';
+
+import { ProductType } from '@/catalog/domain/enums/product-type';
 
 const ISO_4217_REGEX = /^[A-Z]{3}$/;
 

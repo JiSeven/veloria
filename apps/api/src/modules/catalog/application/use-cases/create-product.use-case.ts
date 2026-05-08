@@ -1,9 +1,11 @@
 import { Injectable } from '@nestjs/common';
-import { CatalogPort } from '../../domain/ports/catalog.port';
+
+import { ProductEntity } from '@/catalog/domain/entities/product.entity';
+import { CatalogPort } from '@/catalog/domain/ports/catalog.port';
+import { Money } from '@/catalog/domain/value-objects/money.vo';
+import { ScentProfile } from '@/catalog/domain/value-objects/scent-profile.vo';
+
 import { CreateProductCommand } from '../commands/create-product.command';
-import { ProductEntity } from '../../domain/entities/product.entity';
-import { Money } from '../../domain/value-objects/money.vo';
-import { ScentProfile } from '../../domain/value-objects/scent-profile.vo';
 
 @Injectable()
 export class CreateProductUseCase {

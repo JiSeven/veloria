@@ -1,4 +1,5 @@
 import { CursorPage } from '@/shared/types/cursor-page.interface';
+
 import { ProductEntity } from '../entities/product.entity';
 
 export abstract class CatalogPort {
