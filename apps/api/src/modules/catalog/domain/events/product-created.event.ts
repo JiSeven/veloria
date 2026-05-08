@@ -1,7 +1,8 @@
+import { DomainEvent } from './domain-event.base';
 import { ProductType } from '../enums/product-type';
 
-export class ProductCreatedEvent {
-  public readonly occurredAt: Date;
+export class ProductCreatedEvent extends DomainEvent {
+  readonly name = 'ProductCreatedEvent';
 
   constructor(
     public readonly productId: string,
@@ -10,6 +11,6 @@ export class ProductCreatedEvent {
     public readonly priceCurrency: string,
     public readonly priceAmount: number,
   ) {
-    this.occurredAt = new Date();
+    super();
   }
 }
