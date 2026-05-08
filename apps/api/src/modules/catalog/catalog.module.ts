@@ -1,16 +1,18 @@
 import { Module } from '@nestjs/common';
-import { CatalogController } from './catalog.controller';
-import { CatalogService } from './catalog.service';
-import { CatalogRepositoryPort } from './domain/ports/ catalog.repository.port';
-import { PrismaCatalogRepository } from './infrastructure/persistence/prisma-catalog.repository';
+import { ProductCatalogPort } from './domain/ports/product-catalog.port';
+import { PrismaCatalogAdapter } from './infrastructure/adapters/driven/prisma-catalog.adapter';
+import { CreateProductUseCase } from './application/use-cases/create-product.use-case';
+import { GetProductUseCase } from './application/use-cases/get-product.use-case';
+import { CatalogHttpAdapter } from './infrastructure/adapters/driving/catalog.http.adapter';
 
 @Module({
-  controllers: [CatalogController],
+  controllers: [CatalogHttpAdapter],
   providers: [
-    CatalogService,
+    CreateProductUseCase,
+    GetProductUseCase,
     {
-      provide: CatalogRepositoryPort,
-      useClass: PrismaCatalogRepository,
+      provide: ProductCatalogPort,
+      useClass: PrismaCatalogAdapter,
     },
   ],
 })

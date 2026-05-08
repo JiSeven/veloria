@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
-import { PrismaService } from '../../../../prisma/prisma.service';
-import { CatalogRepositoryPort } from '../../domain/ports/ catalog.repository.port';
-import { CreateProductDto } from '../../dto/create-product.dto';
-import { ProductEntity } from '../../domain/entities/product.entity';
+import { PrismaService } from '../../../../../prisma/prisma.service';
+import { ProductCatalogPort } from '../../../domain/ports/product-catalog.port';
+import { CreateProductDto } from '../../../dto/create-product.dto';
+import { ProductEntity } from '../../../domain/entities/product.entity';
 
 @Injectable()
-export class PrismaCatalogRepository extends CatalogRepositoryPort {
+export class PrismaCatalogAdapter extends ProductCatalogPort {
   constructor(private readonly prismaService: PrismaService) {
     super();
   }
@@ -38,9 +38,9 @@ export class PrismaCatalogRepository extends CatalogRepositoryPort {
     return new ProductEntity(
       product.id,
       product.name,
+      product.description,
       product.brand,
       product.price,
-      product.description,
       product.scentProfile,
     );
   }
