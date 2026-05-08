@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../../../../../prisma/prisma.service';
 import { ProductCatalogPort } from '../../../domain/ports/product-catalog.port';
-import { CreateProductDto } from '../../../dto/create-product.dto';
+import { CreateProductDto } from '../driving/dto/create-product.dto';
 import { ProductEntity } from '../../../domain/entities/product.entity';
 
 @Injectable()

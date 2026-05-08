@@ -5,7 +5,7 @@ import { CreateProductUseCase } from '../../../application/use-cases/create-prod
 import {
   type CreateProductDto,
   CreateProductSchema,
-} from '../../../dto/create-product.dto';
+} from './dto/create-product.dto';
 
 @Controller('catalog')
 export class CatalogHttpAdapter {

@@ -1,4 +1,4 @@
-import { CreateProductDto } from '../../dto/create-product.dto';
+import { CreateProductDto } from '../../infrastructure/adapters/driving/dto/create-product.dto';
 import { ProductEntity } from '../entities/product.entity';
 
 export abstract class ProductCatalogPort {
