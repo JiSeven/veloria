@@ -1,14 +1,15 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
-import { ProductCatalogPort } from '../../domain/ports/product-catalog.port';
+import { Injectable } from '@nestjs/common';
+import { CatalogPort } from '../../domain/ports/catalog.port';
+import { ProductNotFoundException } from '../../domain/exceptions/product-not-found.exception';
 
 @Injectable()
 export class GetProductUseCase {
-  constructor(private readonly repository: ProductCatalogPort) {}
+  constructor(private readonly catalogPort: CatalogPort) {}
 
   async execute(id: string) {
-    const product = await this.repository.findById(id);
+    const product = await this.catalogPort.findById(id);
 
-    if (!product) throw new NotFoundException('Product not found');
+    if (!product) throw new ProductNotFoundException(id);
 
     return product;
   }
