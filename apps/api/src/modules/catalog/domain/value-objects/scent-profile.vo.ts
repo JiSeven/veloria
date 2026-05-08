@@ -61,6 +61,10 @@ export class ScentProfile {
     return new ScentProfile({ top, heart, base });
   }
 
+  public static reconstitute(props: ScentProfileProps): ScentProfile {
+    return new ScentProfile(props);
+  }
+
   public hasNote(note: string): boolean {
     const normalized = note.toLowerCase().trim();
 
