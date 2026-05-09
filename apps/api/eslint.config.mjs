@@ -1,4 +1,4 @@
-import { nestJsConfig } from "@veloria/eslint-config/nest-js";
+import { nestJsConfig } from "@rev/eslint-config/nest-js";
 
 /** @type {import("eslint").Linter.Config} */
 export default nestJsConfig;

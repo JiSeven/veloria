@@ -12,7 +12,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Veloria",
+  title: "rev",
   description: "A premium fragrance & candle marketplace",
 };
 

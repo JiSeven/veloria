@@ -75,10 +75,10 @@ importers:
       '@types/supertest':
         specifier: ^6.0.2
         version: 6.0.3
-      '@veloria/eslint-config':
+      '@rev/eslint-config':
         specifier: workspace:^
         version: link:../../packages/eslint-config
-      '@veloria/typescript-config':
+      '@rev/typescript-config':
         specifier: workspace:^
         version: link:../../packages/typescript-config
       dotenv:
@@ -132,7 +132,7 @@ importers:
 
   apps/docs:
     dependencies:
-      '@veloria/ui':
+      '@rev/ui':
         specifier: workspace:*
         version: link:../../packages/ui
       next:
@@ -154,10 +154,10 @@ importers:
       '@types/react-dom':
         specifier: 19.2.2
         version: 19.2.2(@types/react@19.2.2)
-      '@veloria/eslint-config':
+      '@rev/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@veloria/typescript-config':
+      '@rev/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
       eslint:
@@ -169,7 +169,7 @@ importers:
 
   apps/web:
     dependencies:
-      '@veloria/ui':
+      '@rev/ui':
         specifier: workspace:*
         version: link:../../packages/ui
       next:
@@ -191,10 +191,10 @@ importers:
       '@types/react-dom':
         specifier: 19.2.2
         version: 19.2.2(@types/react@19.2.2)
-      '@veloria/eslint-config':
+      '@rev/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@veloria/typescript-config':
+      '@rev/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
       eslint:
@@ -216,7 +216,7 @@ importers:
         specifier: ^4.4.3
         version: 4.4.3
     devDependencies:
-      '@veloria/typescript-config':
+      '@rev/typescript-config':
         specifier: workspace:^
         version: link:../typescript-config
       dotenv:
@@ -294,10 +294,10 @@ importers:
       '@types/react-dom':
         specifier: 19.2.2
         version: 19.2.2(@types/react@19.2.2)
-      '@veloria/eslint-config':
+      '@rev/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@veloria/typescript-config':
+      '@rev/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       eslint:

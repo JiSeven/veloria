@@ -1,5 +1,5 @@
 {
-  "extends": "@veloria/typescript-config/nextjs.json",
+  "extends": "@rev/typescript-config/nextjs.json",
   "compilerOptions": {
     "plugins": [
       {

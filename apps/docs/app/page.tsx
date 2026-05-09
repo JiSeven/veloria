@@ -1,5 +1,5 @@
 import Image, { type ImageProps } from "next/image";
-import { Button } from "@veloria/ui/button";
+import { Button } from "@rev/ui/button";
 import styles from "./page.module.css";
 
 type Props = Omit<ImageProps, "src"> & {

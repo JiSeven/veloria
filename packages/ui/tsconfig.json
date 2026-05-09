@@ -1,5 +1,5 @@
 {
-  "extends": "@veloria/typescript-config/react-library.json",
+  "extends": "@rev/typescript-config/react-library.json",
   "compilerOptions": {
     "outDir": "dist",
     "rootDir": "src",
