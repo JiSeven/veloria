@@ -1,33 +1,26 @@
-import { Body, Controller, HttpCode, HttpStatus, Post } from '@nestjs/common';
-
-import { CreateProductCommand } from '@/catalog/application/commands/create-motorcycle.command';
-import { CreateProductUseCase } from '@/catalog/application/use-cases/create-motorcycle.use-case';
-
-import { type CreateProductDto } from './dto/create-motorcycle.dto';
+import { CreateMotorcycleUseCase } from '@/catalog/application/use-cases/create-motorcycle.use-case';
+import { Controller, Get, Param } from '@nestjs/common';
 import {
-  ProductResponseDto,
-  toProductResponseDto,
-} from './dto/catalog-response.dto';
+  MotorcycleResponseDto,
+  toMotorcycleResponseDto,
+} from './dto/get-motorcycle.dto';
+import { GetMotorcycleUseCase } from '@/catalog/application/use-cases/get-motorcycle.use-case';
 
 @Controller('catalog')
 export class CatalogHttpAdapter {
-  constructor(private readonly createProductUseCase: CreateProductUseCase) {}
+  constructor(
+    private readonly createMotorcycleUseCase: CreateMotorcycleUseCase,
+    private readonly getMotorcycleUseCase: GetMotorcycleUseCase,
+  ) {}
 
-  @Post()
-  @HttpCode(HttpStatus.CREATED)
-  async create(@Body() dto: CreateProductDto): Promise<ProductResponseDto> {
-    const command = new CreateProductCommand(
-      dto.name,
-      dto.description,
-      dto.brand,
-      dto.type,
-      dto.price.amount,
-      dto.price.currency,
-      dto.scentProfile,
-    );
+  @Get(':id')
+  async getOne(@Param('id') id: string): Promise<MotorcycleResponseDto | null> {
+    const motorcycle = await this.getMotorcycleUseCase.execute(id);
 
-    const product = await this.createProductUseCase.execute(command);
+    if (motorcycle) {
+      return toMotorcycleResponseDto(motorcycle);
+    }
 
-    return toProductResponseDto(product);
+    return null;
   }
 }
