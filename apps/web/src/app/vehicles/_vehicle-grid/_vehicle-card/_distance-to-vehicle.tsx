@@ -1,3 +1,8 @@
 export function DistanceToVehicle() {
-  return <span>120m (4 min)</span>;
+  return (
+    <span>
+      <strong>120m</strong>{" "}
+      <span className="text-muted-foreground">(4 min)</span>
+    </span>
+  );
 }

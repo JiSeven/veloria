@@ -5,7 +5,8 @@ type Props = {
 export function VehicleRentPrice({ className }: Props) {
   return (
     <span className={className}>
-      <strong>$24.59</strong> / <span>hour</span>
+      <strong>$24.59</strong> /{" "}
+      <span className="text-muted-foreground">hour</span>
     </span>
   );
 }

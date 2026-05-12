@@ -21,19 +21,23 @@ type Props = {
 export function VehicleCard({ vehicle: vehicle }: Props) {
   return (
     <Card size="sm" className="mx-auto w-full max-w-sm">
-      <CardHeader>
+      <CardHeader className="grid grid-cols-[auto_auto_1fr] gap-3">
         <DistanceToVehicle />
         <VehicleRating />
-        <VehicleFavoriteToggle />
+        <VehicleFavoriteToggle className="ml-auto" />
       </CardHeader>
 
       <CardContent>
         <VehiclePreview image={vehicle.image} />
-        <CardTitle>{vehicle.name}</CardTitle>
-        <CardDescription className="grid grid-cols-2">
-          <VehicleDescription description={vehicle.description} />
-          <VehicleRentPrice className="row-end-1 col-end-2" />
-        </CardDescription>
+        <div className="grid grid-cols-[1fr_auto]">
+          <CardTitle>
+            <h3 className="font-bold">{vehicle.name}</h3>
+          </CardTitle>
+          <VehicleRentPrice className="row-span-2 self-end ml-auto" />
+          <CardDescription>
+            <VehicleDescription description={vehicle.description} />
+          </CardDescription>
+        </div>
       </CardContent>
     </Card>
   );

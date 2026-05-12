@@ -1,3 +1,8 @@
 export function VehicleRating() {
-  return <span>4.7 (109)</span>;
+  return (
+    <span>
+      <span className="font-bold">4.7</span>{" "}
+      <span className="text-muted-foreground">(109)</span>
+    </span>
+  );
 }

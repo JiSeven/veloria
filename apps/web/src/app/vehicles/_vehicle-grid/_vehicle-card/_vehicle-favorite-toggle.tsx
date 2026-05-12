@@ -1,3 +1,7 @@
-export function VehicleFavoriteToggle() {
-  return <button>Like</button>;
+type Props = {
+  className: string;
+};
+
+export function VehicleFavoriteToggle({ className }: Props) {
+  return <button className={`${className}`}>Like</button>;
 }
