@@ -7,7 +7,7 @@ type Props = {
   vehicles: Vehicle[];
 };
 
-export function VehicleGrid({ vehicles }: Props) {
+export function VehicleListing({ vehicles }: Props) {
   return (
     <section>
       <Header vehiclesCount={vehicles.length} />

@@ -14,6 +14,7 @@ export function VehiclePreview({ image, className = "" }: Props) {
       height="180"
       alt="bmw"
       unoptimized
+      loading="eager"
     />
   );
 }
